@@ -5,7 +5,6 @@ services:
     image: wodby/mariadb:$MARIADB_TAG
     container_name: "${PROJECT_NAME}_mariadb"
     stop_grace_period: 30s
-    networks: default
     environment:
       MYSQL_ROOT_PASSWORD: $DB_ROOT_PASSWORD
       MYSQL_DATABASE: $DB_NAME
@@ -70,7 +69,7 @@ services:
     - "traefik.enable=true"
     - "traefik.docker.network=traefik-proxy"
     - "traefik.http.routers.wordpress-secure.entrypoints=websecure"
-    - "traefik.http.routers.${PROJECT_NAME}_nginx.rule=Host(`matecreviewcenter.com`)"
+    - "traefik.http.routers.${PROJECT_NAME}_nginx.rule=Host(`www.matecreviewcenter.com`)"
 
   mailhog:
     image: mailhog/mailhog
